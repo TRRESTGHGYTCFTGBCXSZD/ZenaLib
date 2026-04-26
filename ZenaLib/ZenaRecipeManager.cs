@@ -11,7 +11,7 @@ using System.IO;
 
 namespace ZenaLib;
 
-public class RecipeManager
+public static class RecipeManager
 {
     public static bool CheckUnshapedRecipe(AtomType[] Input, UnshapedRecipe Recipe, out AtomType[] Output){ //partital match unsupported
         Dictionary<AtomType,int> Dim = new(Recipe.GetInput());
@@ -47,5 +47,23 @@ public class RecipeManager
             }
         }
         return true;
+    }
+    public static bool CheckRecipes(AtomType[] Input, Recipe[] Recipe, out AtomType[] Output){ //partital match unsupported
+        foreach (Recipe EachRecipe in Recipe){
+            if (EachRecipe is ShapedRecipe Shape){
+                if (CheckShapedRecipe(Input,Shape,out AtomType[] Outo)){
+                    Output = Outo;
+                    return true;
+                }
+            }
+            if (EachRecipe is UnshapedRecipe Freeform){
+                if (CheckUnshapedRecipe(Input,Freeform,out AtomType[] Outo)){
+                    Output = Outo;
+                    return true;
+                }
+            }
+        }
+        Output = new AtomType[0];
+        return false;
     }
 }
