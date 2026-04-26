@@ -1,0 +1,11 @@
+Name: Zena_GerioLib
+Version: 1.0.0
+Icon: magical_parcher_zena
+Title: Zena!
+Desc: Library mod for Complex actions, such as recipes.
+DLL: "Zena_GerioLib.dll"
+Dependencies:
+- Name: Quintessential
+  Version: 0.5.5
+#OptionalDependencies:
+#Mappings:
