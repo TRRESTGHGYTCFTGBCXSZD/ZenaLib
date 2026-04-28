@@ -57,7 +57,7 @@ public class ShapedRecipe : Recipe
 		if (Dim.Length != Ingredients.Length) {
 			return false;
 		}
-		for (int index = 0;index <= Dim.Length;index++){
+		for (int index = 0;index < Dim.Length;index++){
 			if (Ingredients[index] is not null && Dim[index] is not null) {
 				if (Dim[index] != Ingredients[index])
 				{
